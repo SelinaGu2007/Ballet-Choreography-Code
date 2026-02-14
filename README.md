@@ -1,5 +1,13 @@
 # Route Planning and Optimization of Ballet Choreography
 
+**A computational framework that models ballet choreography as a routing optimization problem, enabling quantitative comparison between artistic traversal sequences and mathematically optimal movement paths.**
+
+## Project Highlights
+
+- Developed a fully reproducible computational pipeline that converts **dance video recordings into spatial optimization analyses**, integrating pose tracking, trajectory processing, and combinatorial optimization.
+- Formulated choreography traversal as a **metric Traveling Salesperson Problem (TSP)** and computed both **exact optimal routes (Held–Karp)** and **near-optimal approximations (Christofides)** for empirical comparison.
+- Demonstrated quantitatively that classical choreography sequences can be **50–60% longer than spatially optimal traversals**, highlighting the trade-off between artistic structure and geometric movement efficiency.
+
 ## Overview
 This project studies ballet choreography through the lens of **combinatorial optimization** and **computational movement analysis**.  
 We model a dancer’s spatial trajectory as a sequence of stage coordinates and investigate how closely real choreography aligns with the **minimum‑displacement traversal** predicted by routing algorithms.
@@ -26,7 +34,7 @@ be sampled stage positions in the $XZ$‑plane derived from pose tracking.
 Define a complete weighted graph
 
 $$
-G=(V,E), \quad w(i,j)=\|p_i-p_j\|_2
+G=(V,E), \quad w(i, j) = \left\| p_i - p_j \right\|_2
 $$
 
 The choreography traversal corresponds to an ordered cycle through all nodes.  
@@ -44,13 +52,13 @@ which is the classical **metric TSP**.
 
 ### Held–Karp (Exact)
 Dynamic programming solution producing the **optimal tour** for small datasets  
-($O(n^2 2^n)$), used as the evaluation baseline.
+($$O(n^2 2^n)$$), used as the evaluation baseline.
 
 ### Christofides Algorithm
 Polynomial‑time approximation with theoretical guarantee:
 
 $$
-L_{\text{Christofides}} \le 1.5\,L_{\text{optimal}}.
+L_{\text{Christofides}} \le 1.5L_{\text{optimal}}.
 $$
 
 In experiments, the approximation gap is typically much smaller.
@@ -130,7 +138,3 @@ Potential extensions include:
 
 ---
 
-## Author
-
-Sulin Gu  
-Rice University — Mathematics and Computer Science
